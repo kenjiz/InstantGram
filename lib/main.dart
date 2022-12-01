@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instant_gram/state/auth/providers/auth_state_provider.dart';
 import 'package:instant_gram/state/auth/providers/is_logged_in_provider.dart';
+import 'package:instant_gram/state/providers/is_loading_provider.dart';
 import 'package:instant_gram/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
 
@@ -44,6 +45,11 @@ class MyApp extends StatelessWidget {
       home: Consumer(
         builder: (context, ref, child) {
           final isLoggedIn = ref.watch(isLoggedInProvider);
+          ref.listen<bool>(isLoadingProvider, (_, isLoading) {
+            isLoading
+                ? LoadingScreen.instance.show(context: context)
+                : LoadingScreen.instance.hide();
+          });
           return isLoggedIn ? const MainView() : const LoginView();
         },
       ),
@@ -63,14 +69,7 @@ class MainView extends StatelessWidget {
       body: Center(
         child: Consumer(builder: (_, ref, __) {
           return ElevatedButton(
-            onPressed: () {
-              LoadingScreen.instance.show(
-                context: context,
-                text: 'Hello World',
-              );
-
-              // ref.read(authStateProvider.notifier).logOut();
-            },
+            onPressed: ref.read(authStateProvider.notifier).logOut,
             child: const Text('Logout'),
           );
         }),
