@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:instant_gram/state/auth/providers/auth_state_provider.dart';
-import 'package:instant_gram/state/auth/providers/is_logged_in_provider.dart';
-import 'package:instant_gram/state/providers/is_loading_provider.dart';
-import 'package:instant_gram/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
-
 import 'dart:developer' as devtools show log;
+
+import 'state/auth/providers/auth_state_provider.dart';
+import 'state/auth/providers/is_logged_in_provider.dart';
+import 'state/providers/is_loading_provider.dart';
+import 'views/components/loading/loading_screen.dart';
+import 'views/login/login_view.dart';
 
 extension Log on Object {
   void log() => devtools.log(toString());
@@ -73,35 +74,6 @@ class MainView extends StatelessWidget {
             child: const Text('Logout'),
           );
         }),
-      ),
-    );
-  }
-}
-
-class LoginView extends StatelessWidget {
-  const LoginView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: Consumer(
-        builder: (context, ref, _) => Column(
-          children: [
-            TextButton(
-              onPressed: ref.read(authStateProvider.notifier).loginWithFacebook,
-              child: const Text('Login with Facebook'),
-            ),
-            TextButton(
-              onPressed: ref.read(authStateProvider.notifier).logInWithGoogle,
-              child: const Text('Login with Google'),
-            ),
-          ],
-        ),
       ),
     );
   }
