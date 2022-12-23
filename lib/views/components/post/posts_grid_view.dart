@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instant_gram/views/components/post/post_thumbnail_view.dart';
 
 import '../../../state/posts/models/post.dart';
+import '../../post_comments/post_comments_view.dart';
+import 'post_thumbnail_view.dart';
 
 class PostGridView extends StatelessWidget {
   final Iterable<Post> posts;
@@ -25,6 +26,15 @@ class PostGridView extends StatelessWidget {
           return PostThumbnailView(
             post: post,
             onTapped: () {
+              // TODO remove this
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => PostCommentView(
+                    postId: post.postId,
+                  ),
+                ),
+              );
               // TODO navigate to post details view
             },
           );

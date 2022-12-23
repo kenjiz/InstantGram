@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '910413738952',
     projectId: 'instantgram-7a26d',
     storageBucket: 'instantgram-7a26d.appspot.com',
+    androidClientId: '910413738952-l8ol1flck4bdjbi10gjnt8rtfaf300s0.apps.googleusercontent.com',
     iosClientId: '910413738952-4uvrjfjbgv20ls370e04545930ase9ef.apps.googleusercontent.com',
     iosBundleId: 'com.kenjiz.instantGram',
   );

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "910413738952-l8ol1flck4bdjbi10gjnt8rtfaf300s0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kenjiz.instant_gram",
+            "certificate_hash": "99ab0e101edde9a84e154bc033bd682917082601"
+          }
+        },
+        {
           "client_id": "910413738952-afo0avn5codg851b6rd3u7teg4k22t2o.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "910413738952-afo0avn5codg851b6rd3u7teg4k22t2o.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "910413738952-4uvrjfjbgv20ls370e04545930ase9ef.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kenjiz.instantGram"
+              }
             }
           ]
         }

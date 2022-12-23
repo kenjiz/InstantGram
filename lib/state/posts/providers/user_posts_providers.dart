@@ -6,6 +6,7 @@ import '../../auth/providers/user_id_provider.dart';
 import '../../constants/firebase_collection_name.dart';
 import '../../constants/firebase_field_name.dart';
 import '../models/post.dart';
+import '../models/post_key.dart';
 
 final userPostsProvider = StreamProvider.autoDispose<Iterable<Post>>((ref) {
   final userId = ref.watch(userIdProvider);
@@ -18,7 +19,7 @@ final userPostsProvider = StreamProvider.autoDispose<Iterable<Post>>((ref) {
   final sub = FirebaseFirestore.instance
       .collection(FirebaseCollectionName.posts)
       .where(
-        FirebaseFieldName.userId,
+        PostKey.userId,
         isEqualTo: userId,
       )
       .orderBy(
