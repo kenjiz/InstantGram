@@ -5,6 +5,7 @@ import 'package:instant_gram/state/image_upload/helpers/image_picker_helper.dart
 import 'package:instant_gram/state/image_upload/models/file_type.dart';
 import 'package:instant_gram/state/post_settings/providers/post_settings_provider.dart';
 import 'package:instant_gram/views/create_new_post/create_new_post_view.dart';
+import 'package:instant_gram/views/tabs/search/search_view.dart';
 
 import '../../state/auth/providers/auth_state_provider.dart';
 import '../components/dialogs/alert_dialog_model.dart';
@@ -38,7 +39,7 @@ class _MainViewState extends ConsumerState<MainView> {
                   return;
                 }
 
-                ref.refresh(postSettingsProvider);
+                ref.invalidate(postSettingsProvider);
 
                 if (!mounted) {
                   return;
@@ -63,7 +64,7 @@ class _MainViewState extends ConsumerState<MainView> {
                   return;
                 }
 
-                ref.refresh(postSettingsProvider);
+                ref.invalidate(postSettingsProvider);
 
                 if (!mounted) {
                   return;
@@ -103,7 +104,7 @@ class _MainViewState extends ConsumerState<MainView> {
         body: const TabBarView(
           children: [
             UserPostsView(),
-            UserPostsView(),
+            SearchView(),
             UserPostsView(),
           ],
         ),

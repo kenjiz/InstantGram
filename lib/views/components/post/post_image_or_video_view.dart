@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:instant_gram/views/components/post/post_image_view.dart';
 import 'package:instant_gram/views/components/post/post_video_view.dart';
 

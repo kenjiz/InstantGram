@@ -73,7 +73,7 @@ class PostCommentView extends HookConsumerWidget {
                       itemCount: comments.length,
                     ),
                     onRefresh: () {
-                      ref.refresh(postCommentProvider(request.value));
+                      ref.invalidate(postCommentProvider(request.value));
                       return Future.delayed(
                         const Duration(seconds: 1),
                       );

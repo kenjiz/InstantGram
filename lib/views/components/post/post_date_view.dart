@@ -10,9 +10,12 @@ class PostDateView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formatter = DateFormat('d MMMM, YYYY, hh:mm:a');
-    return Text(
-      formatter.format(dateTime),
+    final formatter = DateFormat('d MMMM, yyyy, hh:mm a');
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        formatter.format(dateTime),
+      ),
     );
   }
 }
